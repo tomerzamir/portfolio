@@ -674,7 +674,11 @@ input, textarea, select { font: inherit; color: inherit; }
 
 
 /* Ripple (JS-injected span) */
-.ripple {
+/* [data-ripple] > .ripple beats the `.X > *` layout rules (e.g. .channelcard > *)
+   that would otherwise clobber the ripple's absolute positioning and turn it
+   into an in-flow grid item that balloons the card. */
+.ripple,
+[data-ripple] > .ripple {
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
@@ -833,7 +837,7 @@ input, textarea, select { font: inherit; color: inherit; }
 }
 .workindex__link {
   display: grid;
-  grid-template-columns: 90px 1fr 280px 60px 32px;
+  grid-template-columns: 90px 1fr 280px 32px;
   gap: var(--sp-5);
   align-items: center;
   padding: var(--sp-6) var(--sp-3);
@@ -904,14 +908,6 @@ input, textarea, select { font: inherit; color: inherit; }
 .workindex__link:hover .workindex__thumb video {
   transform: scale(1.05);
 }
-.workindex__year {
-  font-family: var(--font-mono);
-  font-size: var(--t-eyebrow);
-  color: var(--c-accent);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  justify-self: end;
-}
 .workindex__arrow {
   color: var(--c-secondary);
   transition: color var(--d-200) var(--ease-emph), transform var(--d-200) var(--ease-emph);
@@ -942,22 +938,22 @@ input, textarea, select { font: inherit; color: inherit; }
   /* Card-like stack: meta row → full-width prominent thumbnail → title → desc → tags.
      Body text spans the full width so it no longer wraps into a narrow column. */
   .workindex__link {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr;
     grid-template-areas:
-      "num   year"
-      "thumb thumb"
-      "body  body";
-    gap: var(--sp-3) var(--sp-4);
+      "num"
+      "thumb"
+      "body";
+    gap: var(--sp-3);
     align-items: center;
     padding: var(--sp-6) 0;
   }
   .workindex__link:hover { padding-left: 0; } /* no indent shift on touch */
   .workindex__num {
     grid-area: num;
+    justify-self: start;
     align-self: center;
     font-size: 2.25rem;
   }
-  .workindex__year { grid-area: year; justify-self: end; align-self: center; }
   .workindex__thumb {
     grid-area: thumb;
     width: 100%;
@@ -1029,15 +1025,6 @@ input, textarea, select { font: inherit; color: inherit; }
   transition: transform var(--d-450) var(--ease-emph-dec);
 }
 .pullquote.is-visible::before { transform: scaleY(1); }
-.pullquote__eyebrow {
-  font-family: var(--font-mono);
-  font-size: var(--t-eyebrow);
-  color: var(--c-accent);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: var(--sp-2);
-}
-.pullquote__eyebrow span { color: var(--c-accent); }
 .pullquote__quote p {
   font-family: var(--font-display);
   font-style: italic;
@@ -1076,9 +1063,6 @@ input, textarea, select { font: inherit; color: inherit; }
   gap: 0;
 }
 .skillmatrix__list li {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: baseline;
   padding: var(--sp-3) 0;
   border-bottom: 1px dashed color-mix(in oklab, var(--c-on-tertiary-c) 25%, transparent);
   font-size: var(--t-body);
@@ -1088,11 +1072,6 @@ input, textarea, select { font: inherit; color: inherit; }
 .skillmatrix__list li:hover {
   padding-left: 8px;
   color: var(--c-tertiary);
-}
-.skillmatrix__list li span:last-child {
-  font-family: var(--font-mono);
-  color: var(--c-tertiary);
-  font-size: var(--t-small);
 }
 
 

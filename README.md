@@ -4,7 +4,7 @@ A rebuild of my personal site. **Material Tonal Chapters — Coastal palette**:
 four full-bleed pastel surfaces mapped to a Dublin-coastline mood, Fraunces
 italic display type, and an anchoring Deep Ocean CTA across all four sections.
 
-Live: **https://tomerzamir.github.io**
+Live: **https://tomerzamir.github.io/portfolio**
 
 ## Stack
 

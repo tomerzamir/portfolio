@@ -225,7 +225,7 @@
         });
         if (res.ok) {
           form.classList.add("is-success");
-          status.innerHTML = "✓&nbsp;&nbsp;Message sent — I'll reply within a day.";
+          status.innerHTML = "✓&nbsp;&nbsp;Message sent — thanks for reaching out.";
           form.reset();
         } else {
           form.classList.add("is-error");
