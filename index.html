@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <!-- Non-media tag kept in sync by JS on manual toggle; media variants drive first paint -->
+  <meta name="theme-color" content="#A6DBDC" />
+  <meta name="theme-color" content="#A6DBDC" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0C1B1C" media="(prefers-color-scheme: dark)" />
+
+  <title>Tomer Zamir — Solution Engineer</title>
+  <meta name="description" content="Tomer Zamir. Solution Engineer in Dublin. I like turning half-baked ideas into something that actually runs." />
+
+  <meta property="og:title" content="Tomer Zamir — Solution Engineer" />
+  <meta property="og:description" content="Solution Engineer in Dublin. I like turning half-baked ideas into something that actually runs." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tomerzamir.github.io" />
+
+  <link rel="canonical" href="https://tomerzamir.github.io" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='96' font-family='Georgia,serif' font-style='italic' fill='%231A4A6B'%3ET%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..600,30..100;1,9..144,400..600,30..100&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Frank+Ruhl+Libre:wght@400;500&family=Noto+Serif+Hebrew:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<a class="skip" href="#hero">Skip to content</a>
+
+<header class="topbar" role="banner">
+  <div class="topbar__inner">
+    <a href="#hero" class="topbar__mark" aria-label="Home">
+      <span class="topbar__mark-glyph">Tomer&nbsp;<em>Zamir</em></span>
+      <span class="logo-hint" id="logoHint" aria-hidden="true">
+        <span class="logo-hint__ring"></span>
+        <svg class="logo-hint__cursor" viewBox="0 0 30 34" width="26" height="30">
+          <!-- pointing hand: index finger up, fist, thumb; same-fill shapes union cleanly -->
+          <g fill="currentColor">
+            <rect x="10.6" y="1.5" width="4.6" height="17" rx="2.3"/>
+            <rect x="9" y="12" width="14.5" height="18" rx="6.2"/>
+            <rect x="5.4" y="13.2" width="6" height="4.6" rx="2.3" transform="rotate(-30 8.4 15.5)"/>
+            <circle cx="17.4" cy="13.2" r="2.5"/>
+            <circle cx="20.6" cy="14.2" r="2.3"/>
+          </g>
+        </svg>
+      </span>
+    </a>
+    <div class="topbar__meta">
+      <span class="topbar__status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span class="status-text">Available · <span id="localTime">— —</span></span>
+      </span>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="currentColor"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M12 2.5v2.5"/><path d="M12 19v2.5"/><path d="M2.5 12h2.5"/><path d="M19 12h2.5"/><path d="M5.1 5.1l1.8 1.8"/><path d="M17.1 17.1l1.8 1.8"/><path d="M5.1 18.9l1.8-1.8"/><path d="M17.1 6.9l1.8-1.8"/></g></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================
+     CHAPTER 01 — HERO (Lagoon Turquoise)
+     ============================================================ -->
+<section class="chapter chapter--hero" id="hero" data-chapter="01" tabindex="-1" aria-labelledby="hero-title">
+  <div class="chapter__folio" aria-hidden="true">
+    <span class="folio__num">01</span>
+    <span class="folio__label">Hero</span>
+  </div>
+
+  <div class="hero__grid">
+    <div class="hero__body">
+      <p class="eyebrow">Solution Engineer · Dublin · 2026</p>
+      <h1 class="hero__title" id="hero-title">
+        <span class="hero__title-line">Tomer</span>
+        <span class="hero__title-line hero__title-line--italic"><em>Zamir</em></span>
+      </h1>
+      <p class="hero__lead">
+        Hi — I'm Tomer. I'm a <em>Solution Engineer</em> in Dublin.
+        I like turning half-baked ideas into <em>something that actually runs</em>.
+      </p>
+
+      <div class="hero__cta">
+        <a class="btn btn--filled" href="#contact" data-ripple>
+          <span>Get in touch</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--outlined" href="https://drive.google.com/file/d/1NG0osn0ED9AnCbusHneM5rcCYBZMq1Az/view?usp=sharing" target="_blank" rel="noopener" data-ripple>
+          <span>Résumé</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <aside class="hero__aside" aria-label="Profile summary">
+      <div class="card card--hero" data-elevation="2">
+        <dl class="factlist">
+          <div>
+            <dt>Based</dt>
+            <dd>Dublin, Ireland <span class="factlist__meta" id="tzLabel">UTC</span></dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>Applied ML · Vibe coding · Web</dd>
+          </div>
+          <div>
+            <dt>Stack</dt>
+            <dd>Python · C · TS · PyTorch · Unity</dd>
+          </div>
+          <div>
+            <dt>Open to</dt>
+            <dd>SE, Applied AI, Prototyping</dd>
+          </div>
+        </dl>
+      </div>
+      <ul class="chip-row" role="list">
+        <li class="chip chip--assist">Python</li>
+        <li class="chip chip--assist">PyTorch</li>
+        <li class="chip chip--assist">C / C++</li>
+        <li class="chip chip--assist">Unity · C#</li>
+        <li class="chip chip--assist">MQTT · IoT</li>
+      </ul>
+    </aside>
+  </div>
+
+  <!-- HERZL — Hebrew epigraph -->
+  <figure class="epigraph epigraph--hero" data-reveal>
+    <p class="epigraph__eyebrow">Epigraph · <span class="epigraph__eyebrow-alt" lang="he" dir="rtl">אֵימְרָה</span></p>
+    <blockquote class="epigraph__quote" lang="he" dir="rtl">
+      <p>אִם תִּרצוּ אֵין זוֹ אַגָּדָה</p>
+    </blockquote>
+    <figcaption class="epigraph__cite">
+      <span>Theodor Herzl</span>
+      <span class="epigraph__dot" aria-hidden="true">·</span>
+      <span>1902</span>
+    </figcaption>
+  </figure>
+</section>
+
+
+<!-- ============================================================
+     CHAPTER 02 — WORK (Sea Foam light / Coffee dark) — Typographic Index
+     ============================================================ -->
+<section class="chapter chapter--work" id="work" data-chapter="02" aria-labelledby="work-title">
+  <div class="chapter__folio" aria-hidden="true">
+    <span class="folio__num">02</span>
+    <span class="folio__label">Work</span>
+  </div>
+
+  <header class="chapter__head">
+    <p class="eyebrow">Selected work</p>
+    <h2 class="chapter__title" id="work-title">
+      Some of <em>my work</em>.
+    </h2>
+    <p class="chapter__lede">
+      Three projects I've enjoyed making: an academic deep-learning
+      research project, a browser game, and a smart-home over MQTT.
+    </p>
+  </header>
+
+  <ol class="workindex" role="list">
+    <li class="workindex__row" data-reveal>
+      <a class="workindex__link" href="https://play.unity.com/mg/other/webgl-builds-398808" target="_blank" rel="noopener" data-ripple>
+        <span class="workindex__num" aria-hidden="true">P/01</span>
+        <div class="workindex__body">
+          <h3 class="workindex__title">Snowboarding Tony</h3>
+          <p class="workindex__desc">
+            A browser game in Unity + C#. Procedural terrain, chunky physics,
+            a soundtrack that goes harder than it needs to. Playable in your
+            browser.
+          </p>
+          <ul class="chip-row" role="list">
+            <li class="chip chip--assist chip--work">Unity</li>
+            <li class="chip chip--assist chip--work">C#</li>
+            <li class="chip chip--assist chip--work">WebGL</li>
+            <li class="chip chip--assist chip--work">Game design</li>
+          </ul>
+        </div>
+        <div class="workindex__thumb" aria-hidden="true">
+          <video src="assets/snowboarding.mp4" muted loop playsinline preload="metadata"></video>
+        </div>
+        <span class="workindex__year" aria-hidden="true">2022</span>
+        <svg class="workindex__arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="workindex__aux">
+        <a class="link-inline" href="https://github.com/tomerzamir/snowboarding-game" target="_blank" rel="noopener">Source ↗</a>
+      </div>
+    </li>
+
+    <li class="workindex__row" data-reveal>
+      <a class="workindex__link" href="https://github.com/tomerzamir/voice-processing/tree/main" target="_blank" rel="noopener" data-ripple>
+        <span class="workindex__num" aria-hidden="true">P/02</span>
+        <div class="workindex__body">
+          <h3 class="workindex__title">Detecting Parkinson's Disease from voice</h3>
+          <p class="workindex__desc">
+            A deep-learning pipeline that classifies Parkinson's from short
+            voice samples. Feature extraction, CNN, cross-validated evaluation.
+          </p>
+          <ul class="chip-row" role="list">
+            <li class="chip chip--assist chip--work">Python</li>
+            <li class="chip chip--assist chip--work">TensorFlow</li>
+            <li class="chip chip--assist chip--work">Voice Processing</li>
+            <li class="chip chip--assist chip--work">Research</li>
+          </ul>
+        </div>
+        <div class="workindex__thumb" aria-hidden="true">
+          <img src="assets/voice.png" alt="" loading="lazy" />
+        </div>
+        <span class="workindex__year" aria-hidden="true">2023</span>
+        <svg class="workindex__arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </li>
+
+    <li class="workindex__row" data-reveal>
+      <a class="workindex__link" href="https://github.com/tomerzamir/IoT_smart_home" target="_blank" rel="noopener" data-ripple>
+        <span class="workindex__num" aria-hidden="true">P/03</span>
+        <div class="workindex__body">
+          <h3 class="workindex__title">Smart-home over MQTT</h3>
+          <p class="workindex__desc">
+            A distributed smart-home in Python. Sensors, actuators, and a
+            broker-based control plane using MQTT — with a small dashboard on top.
+          </p>
+          <ul class="chip-row" role="list">
+            <li class="chip chip--assist chip--work">Python</li>
+            <li class="chip chip--assist chip--work">MQTT</li>
+            <li class="chip chip--assist chip--work">IoT</li>
+            <li class="chip chip--assist chip--work">Systems</li>
+          </ul>
+        </div>
+        <div class="workindex__thumb" aria-hidden="true">
+          <img src="assets/IoT.png" alt="" loading="lazy" />
+        </div>
+        <span class="workindex__year" aria-hidden="true">2022</span>
+        <svg class="workindex__arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </li>
+  </ol>
+</section>
+
+
+<!-- ============================================================
+     CHAPTER 03 — ABOUT (Sky) — bio + marginalia quotes
+     ============================================================ -->
+<section class="chapter chapter--about" id="about" data-chapter="03" aria-labelledby="about-title">
+  <div class="chapter__folio" aria-hidden="true">
+    <span class="folio__num">03</span>
+    <span class="folio__label">About</span>
+  </div>
+
+  <header class="chapter__head">
+    <p class="eyebrow">A little about me</p>
+    <h2 class="chapter__title" id="about-title">
+      About <em>me</em>.
+    </h2>
+  </header>
+
+  <div class="about__grid">
+    <div class="about__prose" data-reveal>
+      <p class="about__lead">
+        <span class="dropcap">I</span>'m a Solution Engineer with a BSc in Computer
+        Science. Most of the interesting problems I've worked on live somewhere
+        between theory and a customer's Tuesday afternoon — where the model runs
+        on a laptop, the sensor is unreliable, and the deadline was last week.
+      </p>
+
+      <p>
+        My comfort zone spans deep learning, signal processing, embedded systems,
+        and the web. But I'm least useful as a specialist and most useful as the
+        person who can hold the whole shape of a system in their head — and then
+        talk about it with an engineer, a designer, and a director of sales in
+        the same afternoon.
+      </p>
+
+      <!-- EINSTEIN — right-column marginalia (visually inline via CSS) -->
+      <figure class="pullquote pullquote--einstein" data-reveal>
+        <p class="pullquote__eyebrow">Field note · <span>Physics</span></p>
+        <blockquote class="pullquote__quote">
+          <p>Intellectual growth should commence at birth and cease only at death.</p>
+        </blockquote>
+        <figcaption class="pullquote__cite">Albert Einstein</figcaption>
+      </figure>
+
+      <p>
+        When I'm not doing that, I'm building things nobody asked for. A game
+        engine sketch. A voice-model prototype trained on a laptop. A smart-home
+        distributed over three rooms and one broker.
+      </p>
+
+      <!-- TURING — left-column marginalia -->
+      <figure class="pullquote pullquote--turing" data-reveal>
+        <p class="pullquote__eyebrow">Field note · <span>Computing</span></p>
+        <blockquote class="pullquote__quote">
+          <p>We can only see a short distance ahead, but we can see plenty there that needs to be done.</p>
+        </blockquote>
+        <figcaption class="pullquote__cite">Alan Turing</figcaption>
+      </figure>
+
+      <p>
+        It's the same instinct as the day-job: build a rough thing, run it
+        against reality, see what falls off, keep the parts that hold.
+      </p>
+    </div>
+
+    <aside class="about__side" aria-label="Skills and toolkit">
+      <div class="skillmatrix">
+        <h3 class="skillmatrix__title">Stack &amp; tools</h3>
+        <ul class="skillmatrix__list" role="list">
+          <li><span>Python</span><span>10y</span></li>
+          <li><span>LLMs · Agents</span><span>2y</span></li>
+          <li><span>PyTorch · scikit</span><span>3y</span></li>
+          <li><span>Vibe coding</span><span>daily</span></li>
+          <li><span>C / C++</span><span>6y</span></li>
+          <li><span>JavaScript &amp; TS</span><span>4y</span></li>
+          <li><span>Unity · C#</span><span>2y</span></li>
+          <li><span>MQTT · Embedded</span><span>3y</span></li>
+        </ul>
+      </div>
+
+      <div class="skillmatrix">
+        <h3 class="skillmatrix__title">Currently learning</h3>
+        <ul class="chip-row" role="list">
+          <li class="chip chip--filter">MCPs</li>
+          <li class="chip chip--filter">Applied evals</li>
+          <li class="chip chip--filter">Rust</li>
+          <li class="chip chip--filter">CUDA</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CHAPTER 04 — CONTACT (Dusk Rose) — Jobs epigraph + form
+     ============================================================ -->
+<section class="chapter chapter--contact" id="contact" data-chapter="04" aria-labelledby="contact-title">
+  <div class="chapter__folio" aria-hidden="true">
+    <span class="folio__num">04</span>
+    <span class="folio__label">Contact</span>
+  </div>
+
+  <!-- JOBS — coda / lead-in -->
+  <figure class="epigraph epigraph--coda" data-reveal>
+    <p class="epigraph__eyebrow">Coda · Product</p>
+    <blockquote class="epigraph__quote">
+      <p>The only way to do great work is to <em>love what you do</em>.</p>
+    </blockquote>
+    <figcaption class="epigraph__cite">
+      <span>Steve Jobs</span>
+    </figcaption>
+  </figure>
+
+  <header class="chapter__head chapter__head--centered">
+    <p class="eyebrow">Contact · 04</p>
+    <h2 class="chapter__title" id="contact-title">
+      Have a problem worth solving? <br /><em>Let's talk.</em>
+    </h2>
+  </header>
+
+  <div class="contact__grid">
+    <ul class="channels" role="list">
+      <li>
+        <a class="channelcard" href="mailto:tomerz242@gmail.com" data-elevation="1" data-ripple>
+          <div class="channelcard__row">
+            <span class="channelcard__label">Email</span>
+            <span class="channelcard__arrow" aria-hidden="true">↗</span>
+          </div>
+          <span class="channelcard__value">tomerz242@gmail.com</span>
+        </a>
+      </li>
+      <li>
+        <a class="channelcard" href="https://www.linkedin.com/in/tomer-zamir-" target="_blank" rel="noopener" data-elevation="1" data-ripple>
+          <div class="channelcard__row">
+            <span class="channelcard__label">LinkedIn</span>
+            <span class="channelcard__arrow" aria-hidden="true">↗</span>
+          </div>
+          <span class="channelcard__value">tomer-zamir</span>
+        </a>
+      </li>
+      <li>
+        <a class="channelcard" href="https://github.com/tomerzamir" target="_blank" rel="noopener" data-elevation="1" data-ripple>
+          <div class="channelcard__row">
+            <span class="channelcard__label">GitHub</span>
+            <span class="channelcard__arrow" aria-hidden="true">↗</span>
+          </div>
+          <span class="channelcard__value">@tomerzamir</span>
+        </a>
+      </li>
+    </ul>
+
+    <form class="contactform" action="https://formspree.io/f/xdoqdplj" method="POST" novalidate id="contactForm">
+      <div class="field">
+        <input id="name" name="name" type="text" autocomplete="name" required placeholder=" " />
+        <label for="name">Name</label>
+      </div>
+      <div class="field">
+        <input id="email" name="email" type="email" autocomplete="email" required placeholder=" " />
+        <label for="email">Email</label>
+      </div>
+      <div class="field field--textarea">
+        <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+        <label for="message">Message</label>
+      </div>
+      <button type="submit" class="btn btn--filled btn--wide" data-ripple>
+        <span>Send message</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="contactform__status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+
+<footer class="footer" role="contentinfo">
+  <div class="footer__inner footer__inner--slim">
+    <span>© <span id="year">2026</span> Tomer Zamir</span>
+    <span>Thanks for stopping by.</span>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     Dock nav (bottom center, persistent)
+     ============================================================ -->
+<nav class="dock" aria-label="Section navigation">
+  <a href="#hero" data-chapter="01"><span class="dock__num">01</span><span class="dock__lbl">Hero</span></a>
+  <a href="#work" data-chapter="02"><span class="dock__num">02</span><span class="dock__lbl">Work</span></a>
+  <a href="#about" data-chapter="03"><span class="dock__num">03</span><span class="dock__lbl">About</span></a>
+  <a href="#contact" data-chapter="04"><span class="dock__num">04</span><span class="dock__lbl">Contact</span></a>
+  <span class="dock__dot" aria-hidden="true"></span>
+</nav>
+
+<!-- ============================================================
+     Easter egg — triple-click the logo: a sailboat drifts across a wave.
+     ============================================================ -->
+<div class="sailboat" id="sailboat" aria-hidden="true">
+  <svg viewBox="0 0 116 104" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <!-- mast -->
+    <line x1="70" y1="14" x2="70" y2="64" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+    <!-- flag -->
+    <path d="M70 13 L82 17 L70 21 Z" fill="currentColor"/>
+    <!-- mainsail -->
+    <path d="M73 18 Q96 41 73 62 Z" fill="currentColor" opacity="0.85"/>
+    <!-- hull -->
+    <path d="M20 64 L96 64 Q88 84 58 84 Q30 84 20 64 Z" fill="currentColor"/>
+
+    <!-- passenger: chilling with shades, waving -->
+    <g stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- head -->
+      <circle cx="46" cy="40" r="8"/>
+      <!-- torso -->
+      <path d="M46 48 L46 63"/>
+      <!-- resting arm -->
+      <path d="M46 53 L57 58"/>
+      <!-- legs, sitting, dangling forward -->
+      <path d="M46 63 L37 70"/>
+      <path d="M46 63 L55 70"/>
+    </g>
+    <!-- waving arm — pivots at the shoulder (46,53) -->
+    <g class="sailboat__arm">
+      <path d="M46 53 L36 39" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+      <circle cx="36" cy="39" r="1.6" fill="currentColor"/>
+    </g>
+    <!-- sunglasses: two lenses + bridge -->
+    <g fill="currentColor">
+      <ellipse cx="42.6" cy="40" rx="3" ry="2.5"/>
+      <ellipse cx="49.4" cy="40" rx="3" ry="2.5"/>
+    </g>
+    <path d="M45.4 39.4 L46.6 39.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+
+    <!-- waves -->
+    <path d="M6 92 q9 -7 18 0 t18 0" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" opacity="0.45"/>
+    <path d="M70 95 q9 -7 18 0 t18 0" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" opacity="0.45"/>
+  </svg>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
