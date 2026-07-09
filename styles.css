@@ -1034,6 +1034,10 @@ input, textarea, select { font: inherit; color: inherit; }
   color: var(--c-on-tertiary-c);
   text-wrap: balance;
 }
+.pullquote__quote em {
+  font-style: italic;
+  color: var(--c-tertiary);
+}
 .pullquote__cite {
   margin-top: var(--sp-3);
   font-family: var(--font-body);
@@ -1355,8 +1359,7 @@ input, textarea, select { font: inherit; color: inherit; }
   align-items: center;
   gap: 8px;
 }
-.contactform.is-success .contactform__status,
-.contactform.is-error .contactform__status {
+.contactform__status:not(:empty) {
   display: inline-flex;
 }
 .contactform.is-success .contactform__status {

@@ -213,33 +213,91 @@
       // Progressive enhancement — only intercept if fetch is available
       if (!window.fetch || !window.FormData) return;
       e.preventDefault();
-      // Reset any prior result state so success/error stay mutually exclusive
+      // Reset prior state and show a pending signal so it never feels dead
       form.classList.remove("is-success", "is-error");
-      status.textContent = "";
+      status.textContent = "Sending…";
       const data = new FormData(form);
+      // Guard against a hanging request — always surface a result
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 10000);
       try {
         const res = await fetch(form.action, {
           method: "POST",
           body: data,
           headers: { Accept: "application/json" },
+          signal: ctrl.signal,
         });
+        clearTimeout(timer);
         if (res.ok) {
           form.classList.add("is-success");
           status.innerHTML = "✓&nbsp;&nbsp;Message sent — thanks for reaching out.";
           form.reset();
         } else {
           form.classList.add("is-error");
-          status.textContent = "Something went wrong. Try email instead.";
+          status.textContent = "Couldn't send — email me at tomerz242@gmail.com.";
         }
       } catch {
-        // network failure — fall back to native submit
-        form.submit();
+        clearTimeout(timer);
+        form.classList.add("is-error");
+        status.textContent = "Couldn't send — email me at tomerz242@gmail.com.";
       }
     });
   }
 
   /* -------------------------------------------------------------------------
-   * Easter egg — triple-click the topbar logo to launch the sailboat.
+   * Email channel card — copy to clipboard with feedback (mailto still works
+   * for anyone with a mail client configured).
+   * ---------------------------------------------------------------------- */
+  const emailCard = document.querySelector('.channelcard[href^="mailto:"]');
+  if (emailCard) {
+    const valueEl = emailCard.querySelector(".channelcard__value");
+    const address = emailCard.getAttribute("href").replace("mailto:", "");
+    let restoreTimer = null;
+
+    const flashCopied = () => {
+      if (!valueEl) return;
+      // remember the real address once, so rapid clicks don't capture "Copied ✓"
+      if (!emailCard.dataset.email) emailCard.dataset.email = valueEl.textContent;
+      valueEl.textContent = "Copied ✓";
+      clearTimeout(restoreTimer);
+      restoreTimer = setTimeout(() => {
+        valueEl.textContent = emailCard.dataset.email;
+      }, 1600);
+    };
+
+    const copy = (text) => {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      }
+      // Legacy fallback for non-secure contexts / older browsers
+      return new Promise((resolve, reject) => {
+        try {
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          ta.setAttribute("readonly", "");
+          ta.style.cssText = "position:absolute;left:-9999px";
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+          resolve();
+        } catch (err) {
+          reject(err);
+        }
+      });
+    };
+
+    // Don't preventDefault — a real mail client (if any) still opens. We flash
+    // feedback unconditionally so the click is never silent, and copy in the
+    // background (resolves on any HTTPS page with a real click).
+    emailCard.addEventListener("click", () => {
+      copy(address).catch(() => {});
+      flashCopied();
+    });
+  }
+
+  /* -------------------------------------------------------------------------
+   * Easter egg — double-click the topbar logo to launch the sailboat.
    * ---------------------------------------------------------------------- */
   const brand = document.querySelector(".topbar__mark");
   const sailboat = document.getElementById("sailboat");
@@ -277,7 +335,7 @@
     brand.addEventListener("click", () => {
       clickCount++;
       clearTimeout(clickTimer);
-      if (clickCount >= 3) {
+      if (clickCount >= 2) {
         clickCount = 0;
         launchSailboat();
       } else {
