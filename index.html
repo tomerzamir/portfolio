@@ -385,6 +385,9 @@
     </ul>
 
     <form class="contactform" action="https://formspree.io/f/xdoqdplj" method="POST" id="contactForm">
+      <!-- Honeypot: hidden from humans; Formspree discards submissions that fill it -->
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
+             style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none" />
       <div class="field">
         <input id="name" name="name" type="text" autocomplete="name" required placeholder=" " />
         <label for="name">Name</label>
