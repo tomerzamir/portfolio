@@ -7,6 +7,29 @@
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* -------------------------------------------------------------------------
+   * Sailboat animation — shared by the logo easter egg AND a successful
+   * contact-form submission.
+   * ---------------------------------------------------------------------- */
+  let _sailing = false;
+  let _sailTimer = null;
+  function playSailboat() {
+    const sb = document.getElementById("sailboat");
+    if (!sb || prefersReducedMotion || _sailing) return;
+    _sailing = true;
+    const stop = () => {
+      sb.classList.remove("is-swinging");
+      _sailing = false;
+      clearTimeout(_sailTimer);
+    };
+    sb.classList.remove("is-swinging");
+    void sb.offsetWidth; // reflow so a re-trigger restarts cleanly
+    sb.classList.add("is-swinging");
+    sb.addEventListener("animationend", stop, { once: true });
+    sb.addEventListener("animationcancel", stop, { once: true });
+    _sailTimer = setTimeout(stop, 6000); // safety net if the animation is suppressed
+  }
+
+  /* -------------------------------------------------------------------------
    * Year in footer
    * ---------------------------------------------------------------------- */
   const yearEl = document.getElementById("year");
@@ -232,6 +255,7 @@
           form.classList.add("is-success");
           status.innerHTML = "✓&nbsp;&nbsp;Message sent — thanks for reaching out.";
           form.reset();
+          playSailboat(); // celebrate a real, delivered message
         } else {
           form.classList.add("is-error");
           status.textContent = "Couldn't send — email me at tomerz242@gmail.com.";
@@ -304,8 +328,6 @@
   if (brand && sailboat && !prefersReducedMotion) {
     let clickCount = 0;
     let clickTimer = null;
-    let sailing = false;
-    let sailFallback = null;
 
     /* Idle hint: after a few still seconds, a cursor appears and "taps" the
        logo to invite a click. Retired for good once the egg is discovered.
@@ -337,35 +359,13 @@
       clearTimeout(clickTimer);
       if (clickCount >= 2) {
         clickCount = 0;
-        launchSailboat();
+        discovered = true; // retire the idle hint for the rest of the session
+        hideHint();
+        clearTimeout(idleTimer);
+        playSailboat();
       } else {
         clickTimer = setTimeout(() => { clickCount = 0; }, 600);
       }
     });
-
-    const stopSailing = () => {
-      sailboat.classList.remove("is-swinging");
-      sailing = false;
-      clearTimeout(sailFallback);
-    };
-
-    function launchSailboat() {
-      // discovered — retire the idle hint for the rest of the session
-      discovered = true;
-      hideHint();
-      clearTimeout(idleTimer);
-
-      if (sailing) return;
-      sailing = true;
-      sailboat.classList.remove("is-swinging");
-      void sailboat.offsetWidth; // force reflow so a re-trigger restarts cleanly
-      sailboat.classList.add("is-swinging");
-      sailboat.addEventListener("animationend", stopSailing, { once: true });
-      sailboat.addEventListener("animationcancel", stopSailing, { once: true });
-      // Safety net: if animationend never fires (e.g. animation suppressed),
-      // clear the guard so the egg stays re-triggerable. 4.6s anim + margin.
-      clearTimeout(sailFallback);
-      sailFallback = setTimeout(stopSailing, 6000);
-    }
   }
 })();

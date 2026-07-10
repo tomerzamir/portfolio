@@ -765,6 +765,13 @@ input, textarea, select { font: inherit; color: inherit; }
   padding: 0;
   margin: 0;
 }
+/* "Currently focusing on" chips: even 2×2 grid (content-width, left-packed)
+   so they never orphan into a 3+1 wrap. */
+.about__side .chip-row {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 8px;
+}
 
 .chip {
   position: relative;
@@ -1190,9 +1197,9 @@ input, textarea, select { font: inherit; color: inherit; }
   display: grid;
   grid-template-rows: auto 1fr;
   align-content: space-between;
-  gap: var(--sp-2);
-  padding: var(--sp-4) var(--sp-5);
-  min-height: 108px;
+  gap: var(--sp-1);
+  padding: var(--sp-3) var(--sp-4);
+  min-height: 78px;
   background: color-mix(in oklab, #FFFFFF 55%, var(--c-primary-c));
   color: var(--c-on-primary-c);
   border-radius: var(--r-lg);
