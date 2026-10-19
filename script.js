@@ -114,7 +114,7 @@
    * ---------------------------------------------------------------------- */
   const dockLinks = Array.from(document.querySelectorAll(".dock a"));
   const dockDot = document.querySelector(".dock__dot");
-  const sections = ["#hero", "#work", "#about", "#contact"]
+  const sections = ["#hero", "#about", "#work", "#contact"]
     .map((s) => document.querySelector(s))
     .filter(Boolean);
 
