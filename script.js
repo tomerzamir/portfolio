@@ -199,7 +199,7 @@
   if (!prefersReducedMotion) {
     document.addEventListener("pointerdown", (e) => {
       const el = e.target.closest("[data-ripple]");
-      if (!el) return;
+      if (!el || e.target.closest(".workindex__sound")) return;
       const rect = el.getBoundingClientRect();
       const size = Math.max(rect.width, rect.height);
       const ripple = document.createElement("span");
@@ -218,12 +218,34 @@
   document.querySelectorAll(".workindex__link").forEach((row) => {
     const video = row.querySelector("video");
     if (!video) return;
-    const play = () => video.play().catch(() => {});
+    const soundBtn = row.querySelector(".workindex__sound");
+    const setSound = (on) => {
+      video.muted = !on;
+      if (!soundBtn) return;
+      soundBtn.setAttribute("aria-pressed", String(on));
+      soundBtn.setAttribute("aria-label", on ? "Turn preview sound off" : "Turn preview sound on");
+    };
+    // If the browser refuses unmuted playback, fall back to a muted preview
+    const play = () => video.play().catch(() => {
+      if (video.muted) return;
+      setSound(false);
+      video.play().catch(() => {});
+    });
     const pause = () => video.pause();
     row.addEventListener("mouseenter", play);
     row.addEventListener("focus", play, true);
     row.addEventListener("mouseleave", pause);
     row.addEventListener("blur", pause, true);
+
+    // Sound toggle sits inside the link, so keep its clicks from navigating
+    if (soundBtn) {
+      soundBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setSound(video.muted);
+        play();
+      });
+    }
   });
 
   /* -------------------------------------------------------------------------

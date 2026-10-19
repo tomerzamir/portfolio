@@ -907,6 +907,32 @@ input, textarea, select { font: inherit; color: inherit; }
   object-fit: cover;
   transition: transform var(--d-600) var(--ease-emph);
 }
+.workindex__thumb { position: relative; }
+.workindex__sound {
+  position: absolute;
+  right: var(--sp-2);
+  bottom: var(--sp-2);
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid color-mix(in oklab, var(--c-on-surface) 20%, transparent);
+  border-radius: var(--r-pill);
+  background: color-mix(in oklab, var(--c-surface) 72%, transparent);
+  color: var(--c-on-surface);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity var(--d-200) var(--ease-emph), transform var(--d-200) var(--ease-emph);
+}
+.workindex__sound:hover,
+.workindex__sound:focus-visible { opacity: 1; transform: scale(1.06); }
+.workindex__sound-on { display: none; }
+.workindex__sound[aria-pressed="true"] .workindex__sound-on { display: block; }
+.workindex__sound[aria-pressed="true"] .workindex__sound-off { display: none; }
+
 .workindex__link:hover .workindex__thumb {
   transform: scale(1.02);
   box-shadow: var(--sh-warm-3);
